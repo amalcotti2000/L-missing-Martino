@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Explosion for Martin Ceh</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .explosion {
+            position: absolute;
+            font-size: 2em;
+            animation: explode 3s infinite;
+        }
+        @keyframes explode {
+            0% { transform: scale(0) translate(0, 0); opacity: 1; }
+            100% { transform: scale(3) translate(100px, 100px); opacity: 0; }
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>💖 I LOVE YOU, MARTIN CEH! 💖</h1>
+    <p>In every language, in every way! 🌍💘</p>
+    <div id="explosion-container"></div>
+    
+    <img src="https://i.pinimg.com/736x/bc/0f/6d/bc0f6dd1a54fc4e7e856f25b91cf2ff7.jpg" alt="Love Meme">
+    <img src="https://i.pinimg.com/originals/8b/ae/7d/8bae7d43a5dbec7a6ff5ff70ae83cdd7.jpg" alt="Cute Love Meme">
+    
+    <script>
+        const messages = [
+            "Te amo ❤️", "Je t'aime 💕", "Ich liebe dich 💖", "Ti amo 💘", "Я тебя люблю ❤️", "愛してる 💓", "사랑해 💞", "Eu te amo 💗",
+            "I love you Martin Ceh! 💝", "Forever yours! 💑", "You are my world! 🌎💓"
+        ];
+        function createExplosion() {
+            const explosionContainer = document.getElementById("explosion-container");
+            const span = document.createElement("span");
+            span.classList.add("explosion");
+            span.textContent = messages[Math.floor(Math.random() * messages.length)];
+            span.style.top = Math.random() * 100 + "vh";
+            span.style.left = Math.random() * 100 + "vw";
+            span.style.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            explosionContainer.appendChild(span);
+            setTimeout(() => span.remove(), 3000);
+        }
+        setInterval(createExplosion, 300);
+    </script>
+</body>
+</html>
